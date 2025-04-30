@@ -1,0 +1,240 @@
+/* Header */
+header {
+    background-color: #0c3017;
+    color: white;
+    padding: 15px 0; /* Matches nav spacing */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%; /* Matches footer width */
+}
+
+#admin header{
+    background-color: #30d662;
+    color:#000000}
+/* Navigation Bar */
+nav {
+    width: 100%;
+    text-align: center;
+    background-color: #215780;
+}
+
+nav a {color: white; 
+    text-decoration: none;}
+nav a:hover {color: #ddd;}
+nav ul {
+    display: flex;
+    justify-content: center; /* Centers nav links */
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+}
+
+nav li {
+    flex-grow: 1; /*  Makes nav items spread evenly */
+    text-align: center;
+    padding: 15px;
+}
+
+#admin nav {background-color: #499edf;} 
+#admin nav a{color: #000000;}
+#admin nav a:hover{color:#262525}
+/* Main Content */
+main {
+    overflow: auto;
+    min-height: 80vh; /* Expands content area properly */
+    background-color: #f7f7f7;
+    width: 80%; /* Makes width more responsive */
+    margin: auto;
+    box-shadow: -1000px 0 0 #f7f7f7, 1000px 0 0 #f7f7f7;
+    padding-top: 20px;
+}
+
+#admin main {
+    background-color: #c3ede8;
+    box-shadow:-1000px 0 0 #c3ede8, 
+    1000px 0 0 #c3ede8;}
+
+/* Footer */
+footer {
+    background-color: #ede080;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#admin footer{
+    background-color: coral;
+    color: #fff;
+}
+
+/* Question Box */
+.question-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Question Meta Information */
+.question-meta {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Back Button */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #443A5C;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #5c4a7a;
+}
+
+/* Answer Table */
+.answer-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adds spacing between rows */
+}
+
+.answer-table tr {
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+}
+
+.answer-content, .answer-meta {
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.answer-meta {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+    min-width: 200px;
+}
+
+/* Answer Box */
+.answer-box form {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+}
+
+/* Input Fields */
+.answer-box input[type="text"],
+.answer-box textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Fix Button */
+.answer-box button {
+    padding: 10px 15px;
+    background-color: #443A5C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer-box button:hover {
+    background-color: #5c4a7a;
+}
+/* General form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+.edit-label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Text areas */
+textarea {
+    width: 100%;
+    height: 100px; /* Adjusted to better fit text */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allows resizing up/down but prevents distortion */
+}
+
+/* Select dropdowns */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Style only the submit button in editquestion.html.php */
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+/* Make Delete Button Match the Edit Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background-color: #bb2d3b;
+}
+
