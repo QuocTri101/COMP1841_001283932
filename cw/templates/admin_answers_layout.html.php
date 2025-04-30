@@ -7,6 +7,8 @@
     <title>Question & Answers</title>
 </head>
 <body>
+<?php $adminPage = true; ?>
+<div id="admin">
     <?php include '../hf/header.php';?>
 
     <main class="main-content">
@@ -27,5 +29,6 @@
         <a href="questions.php" class="btn">← Back to Questions</a>
     </main>
     <?php include '../hf/footer.php';?>
+</div>
 </body>
 </html>
