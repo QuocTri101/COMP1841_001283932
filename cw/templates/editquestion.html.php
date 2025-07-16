@@ -22,8 +22,8 @@
         <option value="">Select a category</option>
         <?php foreach ($categories as $category): ?>
             <option value="<?=htmlspecialchars($category['id'], ENT_QUOTES, 'UTF-8');?>"
-                <?=($category['id'] == $question['cat_id']) ? 'selected' : '';?>> 
-                <?=htmlspecialchars($category['cat_name'], ENT_QUOTES, 'UTF-8');?>
+                <?=($category['id'] == $question['catg_id']) ? 'selected' : '';?>> 
+                <?=htmlspecialchars($category['catg_name'], ENT_QUOTES, 'UTF-8');?>
             </option>
         <?php endforeach;?>
     </select>

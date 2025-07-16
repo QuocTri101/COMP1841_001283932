@@ -24,7 +24,7 @@ function updateQuestion($pdo, $questionId, $questionText, $imageName, $authorId,
         ':question' => $questionText,
         ':image' => $imageName,
         ':aut_id' => $authorId,
-        ':cat_id' => $categoryId,
+        ':catg_id' => $categoryId,
         ':id' => $questionId
     ];
 
@@ -43,9 +43,9 @@ function deleteQuestion($pdo, $id) {
 
 
 function insertQuestion($pdo, $questiontext, $authorid, $categoryid,$image){
-    $query = 'INSERT INTO question (question,`date`,aut_id,cat_id,`image`)
-    VALUES (:question, CURDATE(), :aut_id, :cat_id, :image)';
-    $parameters=[':question'=>$questiontext,':aut_id'=>$authorid,':cat_id'=>$categoryid,':image'=>$image];
+    $query = 'INSERT INTO question (question,`date`,aut_id,catg_id,`image`)
+    VALUES (:question, CURDATE(), :aut_id, :catg_id, :image)';
+    $parameters=[':question'=>$questiontext,':aut_id'=>$authorid,':catg_id'=>$categoryid,':image'=>$image];
     query($pdo,$query,$parameters);
 }
 function allAuthors($pdo){
@@ -57,10 +57,10 @@ function allCategories($pdo){
     return $categories->fetchAll();
 }
 function allQuestions($pdo){
-    $questions = query($pdo, 'SELECT question.id, question, image, `name`, email, cat_name, `date`
+    $questions = query($pdo, 'SELECT question.id, question, image, `name`, email, catg_name, `date`
     FROM question
     INNER JOIN author ON aut_id=author.id
-    INNER JOIN category ON cat_id=category.id
+    INNER JOIN category ON catg_id=category.id
     WHERE deleted = 0  -- Ensures only non-deleted questions appear
     ORDER BY `date` DESC');
     return $questions->fetchAll();

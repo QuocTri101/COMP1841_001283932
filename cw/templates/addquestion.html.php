@@ -17,7 +17,7 @@
         <option value="">Select a category</option>
         <?php foreach($categories as $category): ?>
             <option value="<?=htmlspecialchars($category['id'], ENT_QUOTES, 'UTF-8'); ?>">
-                <?=htmlspecialchars($category['cat_name'], ENT_QUOTES, 'UTF-8'); ?>
+                <?=htmlspecialchars($category['catg_name'], ENT_QUOTES, 'UTF-8'); ?>
             </option>
         <?php endforeach; ?>
     </select><br><br>

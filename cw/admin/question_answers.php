@@ -7,9 +7,9 @@ try {
         $questionId = $_GET['ques_id'];
         
         // Fetch the selected question
-        $query = "SELECT question, cat_name, name, email, date FROM question
+        $query = "SELECT question, catg_name, name, email, date FROM question
                   INNER JOIN author ON question.aut_id = author.id
-                  INNER JOIN category ON question.cat_id = category.id
+                  INNER JOIN category ON question.catg_id = category.id
                   WHERE question.id = :ques_id";
 
         $stmt = $pdo->prepare($query);

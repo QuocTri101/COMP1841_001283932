@@ -14,7 +14,7 @@
     <main class="main-content">
         <section class="question-box">
             <h2><?=htmlspecialchars($question['question'], ENT_QUOTES, 'UTF-8')?></h2>
-            <p class="question-meta">Category: <strong><?=htmlspecialchars($question['cat_name'], ENT_QUOTES, 'UTF-8')?></strong></p>
+            <p class="question-meta">Category: <strong><?=htmlspecialchars($question['catg_name'], ENT_QUOTES, 'UTF-8')?></strong></p>
             <p class="question-meta">
                 Asked by <a href="mailto:<?=htmlspecialchars($question['email'], ENT_QUOTES, 'UTF-8');?>">
                 <?=htmlspecialchars($question['name'], ENT_QUOTES, 'UTF-8');?></a> on 

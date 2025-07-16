@@ -19,7 +19,7 @@ for ($i = 0; $i < $max; $i++):
             <?=htmlspecialchars($question['question'], ENT_QUOTES, 'UTF-8')?>
             </a>
             <br/>
-            <?=htmlspecialchars($question['cat_name'], ENT_QUOTES, 'UTF-8')?>
+            <?=htmlspecialchars($question['catg_name'], ENT_QUOTES, 'UTF-8')?>
             (by <a href="mailto:<?=htmlspecialchars($question['email'], ENT_QUOTES, 'UTF-8');?>">
                 <?=htmlspecialchars($question['name'], ENT_QUOTES, 'UTF-8');?></a>)
         </td>
@@ -38,5 +38,5 @@ for ($i = 0; $i < $max; $i++):
 </table>
 </blockquote>
 
-<?php endfor; ?> <!-- ✅ Ensure the loop closes properly -->
+<?php endfor; ?> <!-- Ensure the loop closes properly -->
 
