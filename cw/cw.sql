@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2025 at 12:49 PM
+-- Generation Time: Jul 16, 2025 at 03:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,9 +51,15 @@ INSERT INTO `answer` (`id`, `answer`, `ans_date`, `ques_id`, `aut_id`, `deleted`
 (9, 'help me', '2025-04-28', 11, 1, 0),
 (10, 'not noice', '2025-04-28', 11, 2, 0),
 (11, 'hahahaha', '2025-04-30', 11, 1, 0),
-(12, 'tralalaala', '2025-04-30', 11, 3, 0),
-(13, 'bwahahahaahaha', '2025-04-30', 11, 7, 0),
-(14, 'Then why do humans walk on 2 feet instead of 4? ', '2025-04-30', 1, 7, 1);
+(12, 'tralalaa', '2025-04-30', 11, 3, 0),
+(13, 'bwahahahaahaha', '2025-04-30', 11, 7, 1),
+(14, 'Then why do humans walk on 2 feet instead of 4? ', '2025-04-30', 1, 7, 1),
+(15, 'idk', '2025-05-06', 16, 1, 0),
+(16, 'time does not fly', '2025-05-06', 1, 1, 1),
+(17, 'pls no', '2025-05-06', 1, 2, 1),
+(18, 'pls', '2025-05-06', 1, 2, 1),
+(19, 'help', '2025-05-06', 1, 2, 1),
+(20, 'jkLLL', '2025-05-06', 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -89,14 +95,14 @@ INSERT INTO `author` (`id`, `name`, `email`) VALUES
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `cat_name` varchar(255) NOT NULL
+  `catg_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `cat_name`) VALUES
+INSERT INTO `category` (`id`, `catg_name`) VALUES
 (1, 'Life Advice Seeking'),
 (2, 'Personal Opinion'),
 (3, 'Joke'),
@@ -114,7 +120,7 @@ CREATE TABLE `question` (
   `question` text NOT NULL,
   `date` date NOT NULL,
   `aut_id` int(11) NOT NULL,
-  `cat_id` int(11) NOT NULL,
+  `catg_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `deleted` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -123,18 +129,21 @@ CREATE TABLE `question` (
 -- Dumping data for table `question`
 --
 
-INSERT INTO `question` (`id`, `question`, `date`, `aut_id`, `cat_id`, `image`, `deleted`) VALUES
+INSERT INTO `question` (`id`, `question`, `date`, `aut_id`, `catg_id`, `image`, `deleted`) VALUES
 (1, 'Why do birds fly?', '2024-05-08', 1, 2, 'birb.jpg', 0),
 (2, 'When will the TV monitors get fixed', '2024-01-23', 4, 4, 'ohTV.jpg', 0),
 (3, 'Can you brush your teeth while running on a deadline?', '2024-07-17', 6, 1, 'teeth.jpg', 0),
 (4, 'Help me how to learn maths better?', '2024-10-31', 8, 5, 'math.jpg', 0),
 (5, 'Have you seen spiderman catch a cockroach before?', '2024-06-03', 6, 3, 'spooderman.jpg', 0),
-(11, 'lalala', '2025-04-28', 6, 3, 'teeth.jpg', 1),
+(11, 'lalala', '2025-04-28', 6, 3, 'teeth.jpg', 0),
 (12, 'help me', '2025-04-28', 1, 1, 'nut.jpg', 1),
 (13, 'heeeelllppppp', '2025-04-28', 6, 3, 'teeth.jpg', 0),
 (14, 'YATT', '2025-04-28', 4, 5, 'blackhole.jpg', 0),
-(15, 'How can one enter the flow when near deadline? PLEASE TELL ME !?!?', '2025-04-30', 7, 5, 'help.jpg', 0),
-(16, 'can you help me clean the toilet', '2025-04-30', 2, 3, 'blackhole.jpg', 0);
+(15, 'How can one enter the flow when near deadline? PLEASE TELL ME !?!?', '2025-04-30', 7, 5, 'math.jpg', 0),
+(16, 'can you help me clean the toilet', '2025-04-30', 2, 3, 'blackhole.jpg', 0),
+(17, 'help me', '2025-05-06', 4, 3, 'help.jpg', 1),
+(18, 'why?', '2025-05-06', 2, 2, 'nut.jpg', 1),
+(19, 'bye', '2025-07-16', 2, 1, 'teeth.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -156,7 +165,8 @@ CREATE TABLE `webmessage` (
 INSERT INTO `webmessage` (`id`, `message`, `date`, `aut_id`) VALUES
 (1, 'help me', '2025-04-27', 2),
 (2, 'good', '2025-04-27', 6),
-(4, 'I NEED HELUPUU', '2025-04-30', 1);
+(4, 'I NEED HELUPUU', '2025-04-30', 1),
+(5, 'HELLO', '2025-05-06', 6);
 
 --
 -- Indexes for dumped tables
@@ -188,7 +198,7 @@ ALTER TABLE `category`
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
   ADD KEY `author_id` (`aut_id`),
-  ADD KEY `category_id` (`cat_id`);
+  ADD KEY `category_id` (`catg_id`);
 
 --
 -- Indexes for table `webmessage`
@@ -205,7 +215,7 @@ ALTER TABLE `webmessage`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `author`
@@ -223,13 +233,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `webmessage`
 --
 ALTER TABLE `webmessage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -246,7 +256,7 @@ ALTER TABLE `answer`
 -- Constraints for table `question`
 --
 ALTER TABLE `question`
-  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`catg_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`aut_id`) REFERENCES `author` (`id`) ON DELETE CASCADE;
 
 --
