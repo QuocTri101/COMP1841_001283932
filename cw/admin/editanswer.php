@@ -7,7 +7,7 @@ try {
     if (isset($_POST['answer'])) { //When form is submitted, update the answer
 
         updateAnswer($pdo, $_POST['answer_id'], $_POST['answer'], $_POST['aut_id']);
-        header("Location: question_answers.php?ques_id=" . $_POST['ques_id']); // Redirect back to answers list
+        header("Location: ../admin/questions.php?"); // Redirect back to answers list
         exit();
 
     } else { // Otherwise, retrieve the answer for editing
@@ -18,6 +18,7 @@ try {
         
         ob_start();
         include '../templates/editanswer.html.php'; // New template for editing answers
+        
         $output = ob_get_clean();
     }
 

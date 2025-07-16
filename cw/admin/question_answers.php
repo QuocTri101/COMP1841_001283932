@@ -44,7 +44,7 @@ try {
 
 include '../templates/admin_answers_layout.html.php';
 if (!$question) {
-    header("Location: questions-answer.php"); // ✅ Redirect if the question doesn't exist
+    header("Location:question_answers.php"); // ✅ Redirect if the question doesn't exist
     exit();
 }
 

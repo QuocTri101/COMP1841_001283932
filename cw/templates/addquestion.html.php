@@ -22,8 +22,27 @@
         <?php endforeach; ?>
     </select><br><br>
 
-    <label>Type image file name (from 'images/' folder):</label><br>
-    <input type="text" name="image" placeholder="example.jpg"><br><br>
+    <!-- Upload an Image -->
+    <label for="image">Choose an Image (from cw/images folder):</label>
+    <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg" onchange="previewImage(event)">
+    <br>
 
-    <input type="submit" name="submit" value="Add">
+    <!--  Display Image Preview -->
+    <img id="image-preview" src="#" alt="Image Preview" style="max-width: 200px; margin-top: 10px; display: none;">
+
+<!--  JavaScript for Live Image Preview -->
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const preview = document.getElementById("image-preview");
+        preview.src = reader.result;
+        preview.style.display = "block"; //  Shows the preview
+    };
+    reader.readAsDataURL(event.target.files[0]); //  Converts image to preview
+}
+</script>
+
+    <input type="submit" name="submit" value="Save" class="edit-btn">
+</form>
 </form>

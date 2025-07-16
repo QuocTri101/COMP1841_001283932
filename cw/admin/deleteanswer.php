@@ -7,7 +7,7 @@ try {
 
     if ($id) {
         softDeleteAnswer($pdo, $id); // ✅ Calls function to mark answer as hidden
-        header('Location: question_answers.php?ques_id=' . $_GET['ques_id']); // ✅ Redirects to the question page
+        header('Location: ../admin/questions.php' ); // ✅ Redirects to the question page
         exit();
     } else {
         echo "<p style='color: red;'>Error: No ID provided for deletion.</p>";

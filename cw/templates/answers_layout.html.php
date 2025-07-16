@@ -27,5 +27,6 @@
         <a href="questions.php" class="btn">← Back to Questions</a>
     </main>
     <?php include 'hf/footer.php';?>
+
 </body>
 </html>

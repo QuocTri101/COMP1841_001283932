@@ -28,9 +28,27 @@
         <?php endforeach;?>
     </select>
 
-    <!-- Insert Photo Name Instead of Uploading a File -->
-    <label for="image">Image Name (.jpg, .png, etc.):</label>
-    <input type="text" name="image" id="image" value="<?=htmlspecialchars($question['image'], ENT_QUOTES, 'UTF-8');?>">
+
+    <!-- Upload an Image -->
+    <label for="image">Choose an Image (from the cw/images folder):</label>
+    <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg" onchange="previewImage(event)">
     <br>
+
+    <!--  Display Image Preview -->
+    <img id="image-preview" src="#" alt="Image Preview" style="max-width: 200px; margin-top: 10px; display: none;">
+
+<!--  JavaScript for Live Image Preview -->
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const preview = document.getElementById("image-preview");
+        preview.src = reader.result;
+        preview.style.display = "block"; //  Shows the preview
+    };
+    reader.readAsDataURL(event.target.files[0]); //  Converts image to preview
+}
+</script>
+
     <input type="submit" name="submit" value="Save" class="edit-btn">
 </form>
