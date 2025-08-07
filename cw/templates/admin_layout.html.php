@@ -20,6 +20,7 @@
             <li><a href="../admin/addquestion.php">Add a new question</a></li>
             <li><a href="../index.php">Public Site</a></li>
             <li><a href="../admin/messages.php">User Message</a></li>
+             <li><a href="../admin/author_category.php">Manage Users & Categories</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>

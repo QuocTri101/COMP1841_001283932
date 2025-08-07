@@ -19,7 +19,7 @@ function getQuestion($pdo, $id) {
 }
 
 function updateQuestion($pdo, $questionId, $questionText, $imageName, $authorId, $categoryId) {
-    $query = 'UPDATE question SET question = :question, image = :image, aut_id = :aut_id, cat_id = :cat_id WHERE id = :id';
+    $query = 'UPDATE question SET question = :question, image = :image, aut_id = :aut_id, catg_id = :catg_id WHERE id = :id';
     $parameters = [
         ':question' => $questionText,
         ':image' => $imageName,
@@ -130,4 +130,34 @@ function softDeleteAnswer($pdo, $answerId) {
     $stmt = $pdo->prepare($query);
     return $stmt->execute([':id' => $answerId]);
 }
+function addUser($pdo, $name, $email) {
+    $stmt = $pdo->prepare("INSERT INTO author (name, email) VALUES (:name, :email)");
+    $stmt->execute(['name' => $name, 'email' => $email]);
+}
+
+function updateUser($pdo, $id, $name, $email) {
+    $stmt = $pdo->prepare("UPDATE author SET name = :name, email = :email WHERE id = :id");
+    $stmt->execute(['name' => $name, 'email' => $email, 'id' => $id]);
+}
+
+function deleteUser($pdo, $id) {
+    $stmt = $pdo->prepare("DELETE FROM author WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+}
+
+function addCategory($pdo, $catg_name) {
+    $stmt = $pdo->prepare("INSERT INTO category (catg_name) VALUES (:catg_name)");
+    $stmt->execute(['catg_name' => $catg_name]);
+}
+
+function updateCategory($pdo, $id, $catg_name) {
+    $stmt = $pdo->prepare("UPDATE category SET catg_name = :catg_name WHERE id = :id");
+    $stmt->execute(['catg_name' => $catg_name, 'id' => $id]);
+}
+
+function deleteCategory($pdo, $id) {
+    $stmt = $pdo->prepare("DELETE FROM category WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+}
+
 
